@@ -31,7 +31,7 @@ window.I18N = {
     },
     hero: {
       badge: "Инди-студия разработки игр",
-      title: "Делаем свою игру. Помогаем делать вашу.",
+      title: "От первой строчки лора до финального билда",
       subtitle:
         "Привет! Мы — Дмитрий (Mitrey) и Виктор (Rozzar), вдвоём стоим за студией Spiteful Creation. Сейчас мы разрабатываем атмосферный симулятор от первого лица LightGiver.\nТакже мы открыты для заказов: поможем вам с разработкой игровых механик, сценарием, 3D-моделями и левел-дизайном.",
       ctaOrder: "Поручить нам задачу",
@@ -47,7 +47,7 @@ window.I18N = {
       previewCaption: "Кадры из нашей игры LightGiver — нажмите на экран, чтобы открыть в полном размере",
       previewSwitchNight: "Вечер у камина",
       previewSwitchDay: "Консоль сонара",
-      previewSwitchDialogue: "Диалоги"
+      previewSwitchDomovoi: "Домовой в бане"
     },
     team: {
       eyebrow: "01 // КТО МЫ И ЧЕМ МОЖЕМ ПОМОЧЬ",
@@ -225,7 +225,7 @@ window.I18N = {
     },
     hero: {
       badge: "Indie Game Development Studio",
-      title: "Building our own game. Ready to help build yours.",
+      title: "From the first line of lore to the final build",
       subtitle:
         "Hi! We are Dmitry (Mitrey) and Viktor (Rozzar), the two developers behind Spiteful Creation. Right now we are developing LightGiver, a first-person atmospheric simulator.\nWe are also open for commissions: ready to help you with gameplay mechanics, writing, 3D models, and level design.",
       ctaOrder: "Commission Us",
@@ -241,7 +241,7 @@ window.I18N = {
       previewCaption: "In-game shots from LightGiver — click the display to open fullscreen",
       previewSwitchNight: "Evening by the Fire",
       previewSwitchDay: "Sonar Console",
-      previewSwitchDialogue: "Dialogues"
+      previewSwitchDomovoi: "Domovoi in Sauna"
     },
     team: {
       eyebrow: "01 // WHO WE ARE & WHAT WE DO",
@@ -423,6 +423,11 @@ window.LIGHTGIVER_SCREENSHOTS = [
     id: "shrine",
     src: "assets/screenshots/LightGiver_03_Shrine.png",
     title: { ru: "Ночное святилище у моря", en: "Coastal Shrine at Night" }
+  },
+  {
+    id: "domovoi",
+    src: "assets/screenshots/Domovoi_Bath.png",
+    title: { ru: "Домовой в бане (диалоги)", en: "Domovoi in the Bathhouse (Dialogues)" }
   },
   {
     id: "dialogue",
