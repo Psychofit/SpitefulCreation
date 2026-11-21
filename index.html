@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spiteful Creation — Инди-студия (Mitrey &amp; Rozzar) | LightGiver и заказы</title>
+  <meta name="description" content="Spiteful Creation — инди-дуэт разработчиков (Дмитрий 'Mitrey' Шуваев и Виктор 'Rozzar' Белоцкий). Разрабатываем игру LightGiver и принимаем заказы на игровые механики, сценарии, 3D-модели и левел-дизайн." />
+  <link rel="icon" type="image/png" href="assets/logos/SpitefulCreation_Fox_Icon.png" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <!-- ================= STICKY HEADER ================= -->
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a href="#top" class="brand-link" aria-label="Spiteful Creation">
+        <span class="brand-fox-badge">
+          <img src="assets/logos/SpitefulCreation_Fox_Icon.png" alt="Spiteful Creation" class="brand-fox" />
+        </span>
+        <div class="brand-text">
+          <span class="brand-title">SPITEFUL</span>
+          <span class="brand-sub">CREATION</span>
+        </div>
+      </a>
+
+      <nav class="main-nav" aria-label="Main Navigation">
+        <a href="#team" class="nav-link" data-i18n="nav.teamServices">Кто мы и Услуги</a>
+        <a href="#lightgiver" class="nav-link" data-i18n="nav.game">Превью LightGiver</a>
+        <a href="#order" class="nav-link" data-i18n="nav.order">Заказать работу</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="#order" class="status-pill" id="work-status-pill">
+          <span class="status-led" aria-hidden="true"></span>
+          <span class="status-text" id="work-status-text">Открыты к заказам</span>
+        </a>
+
+        <div class="lang-switch" role="group" aria-label="Language switcher">
+          <button type="button" class="lang-btn active" data-lang-btn="ru">RU</button>
+          <button type="button" class="lang-btn" data-lang-btn="en">EN</button>
+        </div>
+
+        <a href="#order" class="btn btn-primary btn-sm header-cta" data-i18n="nav.ctaBtn">Обсудить задачу</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ================= HERO SECTION ================= -->
+    <section class="hero-section">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="eyebrow-badge">
+            <span class="eyebrow-dot"></span>
+            <span data-i18n="hero.badge">Инди-студия разработки игр</span>
+          </div>
+
+          <h1 class="hero-title" data-i18n="hero.title">Делаем свою игру. Помогаем делать вашу.</h1>
+
+          <p class="hero-subtitle" data-i18n="hero.subtitle">
+            Привет! Мы — Дмитрий (Mitrey) и Виктор (Rozzar), вдвоём стоим за студией Spiteful Creation. Сейчас мы разрабатываем атмосферный симулятор от первого лица LightGiver.
+            Также мы открыты для заказов: поможем вам с разработкой игровых механик, сценарием, 3D-моделями и левел-дизайном.
+          </p>
+
+          <div class="hero-cta-row">
+            <a href="#order" class="btn btn-primary btn-lg">
+              <span data-i18n="hero.ctaOrder">Поручить нам задачу</span>
+              <span class="btn-arrow">→</span>
+            </a>
+            <a href="#lightgiver" class="btn btn-sonar btn-lg">
+              <span class="sonar-dot"></span>
+              <span data-i18n="hero.ctaGame">Превью LightGiver</span>
+            </a>
+          </div>
+
+          <div class="hero-facts" id="hero-facts-grid"></div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="studio-monitor-card">
+            <div class="monitor-top-bar">
+              <div class="monitor-brand">
+                <div class="monitor-logo-badge">
+                  <img src="assets/logos/SpitefulCreation_Logo.png" alt="Spiteful Creation" class="monitor-studio-logo" />
+                </div>
+                <div class="monitor-telemetry">
+                  <span class="telemetry-line" data-i18n="hero.telemetryStudio">СТУДИЯ // SPITEFUL CREATION</span>
+                  <span class="telemetry-line green" data-i18n="hero.telemetryProject">ПРОЕКТ // LIGHTGIVER</span>
+                </div>
+              </div>
+              <div class="monitor-Readout">SONAR MK II</div>
+            </div>
+
+            <div class="monitor-screen" id="hero-monitor-screen" role="button" tabindex="0" aria-label="Open screenshot in full resolution">
+              <img
+                src="assets/screenshots/LightGiver_15_evening_by_the_fire.png"
+                alt="LightGiver Preview"
+                class="monitor-img"
+                id="hero-preview-img"
+              />
+              <div class="monitor-overlay-badge">
+                <img src="assets/logos/LightGiver_Logo_Transparent.png" alt="LightGiver" class="monitor-lg-logo" />
+              </div>
+            </div>
+
+            <div class="monitor-controls">
+              <div class="monitor-tabs" role="tablist">
+                <button type="button" class="monitor-tab active" data-hero-shot="fireplace" data-i18n="hero.previewSwitchNight">
+                  Вечер у камина
+                </button>
+                <button type="button" class="monitor-tab" data-hero-shot="sonar" data-i18n="hero.previewSwitchDay">
+                  Консоль сонара
+                </button>
+                <button type="button" class="monitor-tab" data-hero-shot="dialogue" data-i18n="hero.previewSwitchDialogue">
+                  Диалоги
+                </button>
+              </div>
+              <p class="monitor-caption" data-i18n="hero.previewCaption">
+                Кадры из нашей игры LightGiver — нажмите на экран, чтобы открыть в полном размере
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 1: TEAM & SERVICES ================= -->
+    <section class="section team-section" id="team">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow" data-i18n="team.eyebrow">01 // КТО МЫ И ЧЕМ МОЖЕМ ПОМОЧЬ</span>
+          <h2 class="section-title" data-i18n="team.title">Два разработчика — четыре направления</h2>
+          <p class="section-subtitle" data-i18n="team.subtitle"></p>
+        </div>
+
+        <div class="team-grid" id="team-cards-container"></div>
+
+        <div class="duo-banner" id="duo-banner">
+          <div class="duo-content">
+            <span class="duo-badge" data-i18n="team.duo.badge">СОВМЕСТНЫЙ РЕЖИМ // MITREY + ROZZAR</span>
+            <h3 class="duo-title" data-i18n="team.duo.title">Нужна готовая фича, локация или прототип «под ключ»?</h3>
+            <p class="duo-desc" data-i18n="team.duo.desc"></p>
+            <p class="duo-pricing-note" data-i18n="team.pricingNote"></p>
+          </div>
+          <div class="duo-action">
+            <button type="button" class="btn btn-primary btn-lg" id="duo-order-btn" data-i18n="team.duo.cta">
+              Заказать работу дуэтом
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 2: LIGHTGIVER PREVIEW (MERGED) ================= -->
+    <section class="section game-section" id="lightgiver">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow green" data-i18n="game.eyebrow">02 // НАША ИГРА</span>
+          <h2 class="section-title" data-i18n="game.title">Превью LightGiver</h2>
+        </div>
+
+        <div class="game-showcase-box">
+          <div class="lightgiver-split-layout">
+            <!-- Left Column: Game Info -->
+            <div class="lightgiver-info-col">
+              <div class="lightgiver-logo-wrap">
+                <img src="assets/logos/LightGiver_Logo_Transparent.png" alt="LIGHTGIVER" class="lightgiver-main-logo" />
+              </div>
+
+              <div class="game-meta-badges">
+                <span class="meta-chip green-chip" data-i18n="game.statusBadge">В разработке</span>
+                <span class="meta-chip" data-i18n="game.genreChip">Атмосферный симулятор от первого лица</span>
+                <span class="meta-chip" data-i18n="game.platformChip">ПК / Steam</span>
+              </div>
+
+              <p class="game-lead" data-i18n="game.description"></p>
+
+              <div class="game-honest-note">
+                <span class="note-label" data-i18n="game.devlogLabel">Дневники разработки</span>
+                <p data-i18n="game.devlogNote"></p>
+              </div>
+
+              <div class="game-steam-box" id="steam-cta-container"></div>
+            </div>
+
+            <!-- Right Column: Separate Screenshots / GIFs Switcher -->
+            <div class="lightgiver-media-col">
+              <div class="media-mode-bar" role="tablist" aria-label="LightGiver media type">
+                <button type="button" class="media-mode-btn active" id="mode-screenshots-btn" data-media-mode="screenshots" role="tab">
+                  <span data-i18n="game.tabScreenshots">Скриншоты</span>
+                  <span class="mode-count">(13)</span>
+                </button>
+                <button type="button" class="media-mode-btn" id="mode-gifs-btn" data-media-mode="gifs" role="tab">
+                  <span data-i18n="game.tabGifs">Гифки</span>
+                  <span class="mode-count">(6)</span>
+                </button>
+              </div>
+
+              <div class="media-stage-card">
+                <div class="media-stage-frame" id="media-stage-frame">
+                  <button type="button" class="stage-nav-btn prev" id="stage-prev-btn" aria-label="Previous">‹</button>
+                  <img src="" alt="" class="stage-main-img" id="stage-main-img" />
+                  <button type="button" class="stage-nav-btn next" id="stage-next-btn" aria-label="Next">›</button>
+                  <span class="stage-zoom-hint" data-i18n="game.openFullscreenHint">Нажмите на кадр для просмотра во весь экран</span>
+                </div>
+                <div class="media-stage-footer">
+                  <span class="stage-caption" id="stage-caption"></span>
+                  <span class="stage-counter" id="stage-counter">1 / 13</span>
+                </div>
+              </div>
+
+              <div class="media-thumbs-grid" id="media-thumbs-grid"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 3: DIALOGUE-STYLE ORDER / CONTACT ================= -->
+    <section class="section order-section" id="order">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow amber" data-i18n="order.eyebrow">03 // ЗАКАЗАТЬ РАБОТУ ИЛИ ОБСУДИТЬ ПРОЕКТ</span>
+          <h2 class="section-title" data-i18n="order.title">Выберите реплику — начнём диалог</h2>
+          <p class="section-subtitle" data-i18n="order.subtitle"></p>
+        </div>
+
+        <div class="order-layout">
+          <div class="order-builder-card">
+            <div class="builder-step">
+              <label class="builder-step-label" data-i18n="order.step1Label">
+                1. Что нужно сделать? (можно выбрать несколько вариантов):
+              </label>
+              <div class="dialogue-options-grid" id="order-options-grid"></div>
+            </div>
+
+            <div class="builder-step">
+              <label for="order-message-input" class="builder-step-label" data-i18n="order.step2Label">
+                2. Расскажите в паре предложений о вашей задаче:
+              </label>
+              <textarea id="order-message-input" class="builder-textarea" rows="4" placeholder=""></textarea>
+            </div>
+
+            <div class="no-pd-notice" data-i18n="order.noPdNote"></div>
+
+            <div class="brief-preview-box">
+              <div class="brief-preview-header">
+                <span data-i18n="order.previewBoxLabel">Сформированное сообщение (готово к отправке):</span>
+                <span class="brief-preview-tag" data-i18n="order.previewBoxTag">ТЕКСТ // ГОТОВО</span>
+              </div>
+              <pre class="brief-preview-content" id="brief-preview-text"></pre>
+            </div>
+
+            <div class="builder-actions">
+              <button type="button" class="btn btn-primary btn-lg" id="send-telegram-btn">
+                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+                </svg>
+                <span data-i18n="order.btnTelegram">Скопировать и открыть Telegram</span>
+              </button>
+
+              <button type="button" class="btn btn-sonar btn-lg" id="send-email-btn">
+                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="4" width="20" height="16" rx="2" />
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                </svg>
+                <span data-i18n="order.btnEmail">Отправить по Email</span>
+              </button>
+
+              <button type="button" class="btn btn-ghost" id="copy-brief-btn" data-i18n="order.btnCopyOnly">
+                Скопировать текст заявки
+              </button>
+            </div>
+
+            <div class="copy-toast" id="copy-toast" hidden data-i18n="order.copiedToast"></div>
+
+            <div class="legal-inline-row">
+              <button type="button" class="legal-inline-link" data-open-legal data-i18n="order.legalLinkText">
+                Правовая информация и Политика конфиденциальности (152-ФЗ)
+              </button>
+            </div>
+          </div>
+
+          <aside class="direct-contacts-card">
+            <div class="direct-fox-header">
+              <div class="direct-logo-badge">
+                <img src="assets/logos/SpitefulCreation_Logo.png" alt="Spiteful Creation" class="direct-studio-logo" />
+              </div>
+            </div>
+
+            <h3 class="direct-title" data-i18n="order.directTitle">Прямые контакты без форм:</h3>
+            <p class="direct-sub" data-i18n="order.directSub"></p>
+
+            <div class="direct-links-list">
+              <a href="https://t.me/Frickmad" target="_blank" rel="noopener noreferrer" class="direct-contact-item" id="direct-tg-link">
+                <div class="direct-contact-icon tg">TG</div>
+                <div class="direct-contact-info">
+                  <span class="direct-contact-label">Telegram</span>
+                  <span class="direct-contact-val" id="direct-tg-val">@Frickmad</span>
+                </div>
+                <span class="direct-arrow">↗</span>
+              </a>
+
+              <a href="mailto:info.corpofevil@gmail.com" class="direct-contact-item" id="direct-email-link">
+                <div class="direct-contact-icon mail">@</div>
+                <div class="direct-contact-info">
+                  <span class="direct-contact-label">Email</span>
+                  <span class="direct-contact-val" id="direct-email-val">info.corpofevil@gmail.com</span>
+                </div>
+                <span class="direct-arrow">↗</span>
+              </a>
+            </div>
+
+            <div class="direct-devs-mini">
+              <div class="mini-dev-row">
+                <img src="assets/avatars/Mitrey.png" alt="Mitrey" class="mini-dev-avatar" />
+                <span data-i18n="order.directRoleMitrey">Дмитрий Шуваев (Mitrey) — Код, Геймдизайн, Сценарий</span>
+              </div>
+              <div class="mini-dev-row">
+                <img src="assets/avatars/Rozzar.png" alt="Rozzar" class="mini-dev-avatar" />
+                <span data-i18n="order.directRoleRozzar">Виктор Белоцкий (Rozzar) — 3D-графика, Левел-дизайн</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <div class="footer-brand-row">
+          <span class="footer-fox-badge">
+            <img src="assets/logos/SpitefulCreation_Fox_Icon.png" alt="Spiteful Creation" class="footer-fox" />
+          </span>
+          <span class="footer-brand-name">SPITEFUL CREATION</span>
+        </div>
+        <p class="footer-motto" data-i18n="footer.motto"></p>
+      </div>
+      <div class="footer-right">
+        <p class="footer-copy" data-i18n="footer.copyright"></p>
+        <div class="footer-meta-row">
+          <p class="footer-telemetry" data-i18n="footer.easterEgg"></p>
+          <button type="button" class="legal-footer-link" data-open-legal data-i18n="footer.legalLinkText">
+            Правовая информация и 152-ФЗ
+          </button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= FULLSCREEN LIGHTBOX MODAL ================= -->
+  <div class="lightbox-backdrop" id="lightbox-modal" hidden aria-modal="true" role="dialog">
+    <div class="lightbox-container">
+      <div class="lightbox-topbar">
+        <div class="lightbox-code" id="lightbox-counter">1 / 13</div>
+        <h3 class="lightbox-title" id="lightbox-title"></h3>
+        <button type="button" class="lightbox-close" id="lightbox-close-btn" aria-label="Close">✕</button>
+      </div>
+
+      <div class="lightbox-stage">
+        <button type="button" class="lightbox-nav-btn prev" id="lightbox-prev-btn" aria-label="Previous">‹</button>
+        <img src="" alt="" class="lightbox-img" id="lightbox-img" />
+        <button type="button" class="lightbox-nav-btn next" id="lightbox-next-btn" aria-label="Next">›</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= LEGAL & PRIVACY MODAL ================= -->
+  <div class="lightbox-backdrop" id="legal-modal" hidden aria-modal="true" role="dialog">
+    <div class="lightbox-container legal-modal-container">
+      <div class="lightbox-topbar">
+        <div class="lightbox-code" id="legal-badge">152-ФЗ · 38-ФЗ · 53-ФЗ</div>
+        <h3 class="lightbox-title" id="legal-title">Правовая информация и защита данных</h3>
+        <button type="button" class="lightbox-close" id="legal-close-btn" aria-label="Close">✕</button>
+      </div>
+      <div class="legal-sections-list" id="legal-sections-list"></div>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
