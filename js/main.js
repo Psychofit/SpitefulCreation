@@ -100,6 +100,8 @@
     selectedOrderOptions: new Set(["duo-turnkey"])
   };
 
+  const prefetchedUrls = new Set();
+
   function getDict() {
     return window.I18N[state.lang] || window.I18N.ru;
   }
@@ -114,6 +116,13 @@
 
   function findScreenshotById(id) {
     return window.LIGHTGIVER_SCREENSHOTS.find((item) => item.id === id) || window.LIGHTGIVER_SCREENSHOTS[0];
+  }
+
+  function prefetchImage(url) {
+    if (!url || prefetchedUrls.has(url)) return;
+    prefetchedUrls.add(url);
+    const img = new Image();
+    img.src = url;
   }
 
   /* ================= 1. LANGUAGE & STATIC TEXTS ================= */
@@ -194,7 +203,10 @@
     const shot = findScreenshotById(state.heroShotId);
     const imgEl = document.getElementById("hero-preview-img");
     if (imgEl && shot) {
-      imgEl.src = shot.src;
+      if (imgEl.dataset.currentSrc !== shot.src) {
+        imgEl.dataset.currentSrc = shot.src;
+        imgEl.src = shot.src;
+      }
       imgEl.alt = shot.title[state.lang];
     }
     document.querySelectorAll("[data-hero-shot]").forEach((btn) => {
@@ -287,13 +299,61 @@
 
     const activeItem = list[state.activeMediaIndex];
     const mainImg = document.getElementById("stage-main-img");
+    const mainVideo = document.getElementById("stage-main-video");
+    const loader = document.getElementById("stage-loader");
     const captionEl = document.getElementById("stage-caption");
     const counterEl = document.getElementById("stage-counter");
 
-    if (mainImg && activeItem) {
-      mainImg.src = activeItem.src;
-      mainImg.alt = activeItem.title[state.lang];
+    if (activeItem) {
+      if (activeItem.isVideo && mainVideo) {
+        if (mainImg) {
+          mainImg.hidden = true;
+          mainImg.removeAttribute("src");
+          delete mainImg.dataset.currentSrc;
+        }
+        mainVideo.hidden = false;
+        mainVideo.poster = activeItem.thumb || "";
+        if (mainVideo.dataset.currentSrc !== activeItem.src) {
+          if (loader) loader.hidden = false;
+          mainVideo.dataset.currentSrc = activeItem.src;
+          mainVideo.src = activeItem.src;
+          mainVideo.load();
+        } else if (loader && mainVideo.readyState >= 2) {
+          loader.hidden = true;
+        }
+        const playPromise = mainVideo.play();
+        if (playPromise && typeof playPromise.catch === "function") {
+          playPromise.catch(() => {});
+        }
+      } else if (mainImg) {
+        if (mainVideo) {
+          mainVideo.pause();
+          mainVideo.hidden = true;
+          mainVideo.removeAttribute("src");
+          delete mainVideo.dataset.currentSrc;
+          mainVideo.load();
+        }
+        mainImg.hidden = false;
+        mainImg.alt = activeItem.title[state.lang];
+        if (mainImg.dataset.currentSrc !== activeItem.src) {
+          if (loader) loader.hidden = false;
+          mainImg.dataset.currentSrc = activeItem.src;
+          mainImg.src = activeItem.src;
+          if (mainImg.complete && loader) {
+            loader.hidden = true;
+          }
+        } else if (loader && mainImg.complete) {
+          loader.hidden = true;
+        }
+
+        // Prefetch adjacent screenshots so Next/Prev feels instant
+        const nextIdx = (state.activeMediaIndex + 1) % list.length;
+        const prevIdx = (state.activeMediaIndex - 1 + list.length) % list.length;
+        prefetchImage(list[nextIdx].src);
+        prefetchImage(list[prevIdx].src);
+      }
     }
+
     if (captionEl && activeItem) {
       captionEl.textContent = activeItem.title[state.lang];
     }
@@ -304,20 +364,22 @@
     const thumbsContainer = document.getElementById("media-thumbs-grid");
     if (thumbsContainer) {
       thumbsContainer.innerHTML = list
-        .map(
-          (item, idx) => `
-          <button
-            type="button"
-            class="media-thumb-btn ${idx === state.activeMediaIndex ? "active" : ""}"
-            data-thumb-index="${idx}"
-            title="${item.title[state.lang]}"
-            aria-label="${item.title[state.lang]}"
-          >
-            <img src="${item.src}" alt="${item.title[state.lang]}" loading="lazy" />
-            <span class="thumb-badge-num">${idx + 1}</span>
-          </button>
-        `
-        )
+        .map((item, idx) => {
+          const thumbSrc = item.thumb || item.src;
+          return `
+            <button
+              type="button"
+              class="media-thumb-btn ${idx === state.activeMediaIndex ? "active" : ""}"
+              data-thumb-index="${idx}"
+              title="${item.title[state.lang]}"
+              aria-label="${item.title[state.lang]}"
+            >
+              <img src="${thumbSrc}" alt="${item.title[state.lang]}" loading="lazy" decoding="async" />
+              <span class="thumb-badge-num">${idx + 1}</span>
+              ${item.isVideo ? '<span class="thumb-play-badge" aria-hidden="true">▶</span>' : ""}
+            </button>
+          `;
+        })
         .join("");
     }
   }
@@ -342,6 +404,17 @@
 
   function closeLightbox() {
     state.lightboxOpen = false;
+    const lbVideo = document.getElementById("lightbox-video");
+    if (lbVideo) {
+      lbVideo.pause();
+      lbVideo.hidden = true;
+      lbVideo.removeAttribute("src");
+      delete lbVideo.dataset.currentSrc;
+      lbVideo.load();
+    }
+    const lbLoader = document.getElementById("lightbox-loader");
+    if (lbLoader) lbLoader.hidden = true;
+
     const modal = document.getElementById("lightbox-modal");
     if (modal) modal.hidden = true;
     if (!state.legalModalOpen) {
@@ -365,9 +438,49 @@
     document.getElementById("lightbox-title").textContent = item.title[state.lang];
 
     const imgEl = document.getElementById("lightbox-img");
-    if (imgEl) {
-      imgEl.src = item.src;
+    const videoEl = document.getElementById("lightbox-video");
+    const loaderEl = document.getElementById("lightbox-loader");
+
+    if (item.isVideo && videoEl) {
+      if (imgEl) {
+        imgEl.hidden = true;
+        imgEl.removeAttribute("src");
+        delete imgEl.dataset.currentSrc;
+      }
+      videoEl.hidden = false;
+      videoEl.poster = item.thumb || "";
+      if (videoEl.dataset.currentSrc !== item.src) {
+        if (loaderEl) loaderEl.hidden = false;
+        videoEl.dataset.currentSrc = item.src;
+        videoEl.src = item.src;
+        videoEl.load();
+      } else if (loaderEl && videoEl.readyState >= 2) {
+        loaderEl.hidden = true;
+      }
+      const p = videoEl.play();
+      if (p && typeof p.catch === "function") {
+        p.catch(() => {});
+      }
+    } else if (imgEl) {
+      if (videoEl) {
+        videoEl.pause();
+        videoEl.hidden = true;
+        videoEl.removeAttribute("src");
+        delete videoEl.dataset.currentSrc;
+        videoEl.load();
+      }
+      imgEl.hidden = false;
       imgEl.alt = item.title[state.lang];
+      if (imgEl.dataset.currentSrc !== item.src) {
+        if (loaderEl) loaderEl.hidden = false;
+        imgEl.dataset.currentSrc = item.src;
+        imgEl.src = item.src;
+        if (imgEl.complete && loaderEl) {
+          loaderEl.hidden = true;
+        }
+      } else if (loaderEl && imgEl.complete) {
+        loaderEl.hidden = true;
+      }
     }
   }
 
@@ -569,9 +682,61 @@
       stepStageMedia(1);
     });
 
-    document.getElementById("stage-main-img")?.addEventListener("click", () => {
+    const stageImg = document.getElementById("stage-main-img");
+    const stageVideo = document.getElementById("stage-main-video");
+    const stageLoader = document.getElementById("stage-loader");
+
+    if (stageImg && stageLoader) {
+      stageImg.addEventListener("load", () => {
+        stageLoader.hidden = true;
+      });
+      stageImg.addEventListener("error", () => {
+        stageLoader.hidden = true;
+      });
+    }
+    if (stageVideo && stageLoader) {
+      stageVideo.addEventListener("loadeddata", () => {
+        stageLoader.hidden = true;
+      });
+      stageVideo.addEventListener("canplay", () => {
+        stageLoader.hidden = true;
+      });
+      stageVideo.addEventListener("error", () => {
+        stageLoader.hidden = true;
+      });
+    }
+
+    stageImg?.addEventListener("click", () => {
       openLightbox(state.mediaMode, state.activeMediaIndex);
     });
+
+    stageVideo?.addEventListener("click", () => {
+      openLightbox(state.mediaMode, state.activeMediaIndex);
+    });
+
+    const lbImg = document.getElementById("lightbox-img");
+    const lbVideo = document.getElementById("lightbox-video");
+    const lbLoader = document.getElementById("lightbox-loader");
+
+    if (lbImg && lbLoader) {
+      lbImg.addEventListener("load", () => {
+        lbLoader.hidden = true;
+      });
+      lbImg.addEventListener("error", () => {
+        lbLoader.hidden = true;
+      });
+    }
+    if (lbVideo && lbLoader) {
+      lbVideo.addEventListener("loadeddata", () => {
+        lbLoader.hidden = true;
+      });
+      lbVideo.addEventListener("canplay", () => {
+        lbLoader.hidden = true;
+      });
+      lbVideo.addEventListener("error", () => {
+        lbLoader.hidden = true;
+      });
+    }
 
     document.addEventListener("click", (e) => {
       const legalBtn = e.target.closest("[data-open-legal]");

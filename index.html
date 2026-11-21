@@ -16,7 +16,7 @@
     <div class="container header-inner">
       <a href="#top" class="brand-link" aria-label="Spiteful Creation">
         <span class="brand-fox-badge">
-          <img src="assets/logos/SpitefulCreation_Fox_Icon.png" alt="Spiteful Creation" class="brand-fox" />
+          <img src="assets/logos/SpitefulCreation_Fox_Icon.webp" alt="Spiteful Creation" class="brand-fox" />
         </span>
         <div class="brand-text">
           <span class="brand-title">SPITEFUL</span>
@@ -82,7 +82,7 @@
             <div class="monitor-top-bar">
               <div class="monitor-brand">
                 <div class="monitor-logo-badge">
-                  <img src="assets/logos/SpitefulCreation_Logo.png" alt="Spiteful Creation" class="monitor-studio-logo" />
+                  <img src="assets/logos/SpitefulCreation_Logo.webp" alt="Spiteful Creation" class="monitor-studio-logo" />
                 </div>
                 <div class="monitor-telemetry">
                   <span class="telemetry-line" data-i18n="hero.telemetryStudio">СТУДИЯ // SPITEFUL CREATION</span>
@@ -94,13 +94,13 @@
 
             <div class="monitor-screen" id="hero-monitor-screen" role="button" tabindex="0" aria-label="Open screenshot in full resolution">
               <img
-                src="assets/screenshots/LightGiver_15_evening_by_the_fire.png"
+                src="assets/screenshots/LightGiver_15_evening_by_the_fire.webp"
                 alt="LightGiver Preview"
                 class="monitor-img"
                 id="hero-preview-img"
               />
               <div class="monitor-overlay-badge">
-                <img src="assets/logos/LightGiver_Logo_Transparent.png" alt="LightGiver" class="monitor-lg-logo" />
+                <img src="assets/logos/LightGiver_Logo_Transparent.webp" alt="LightGiver" class="monitor-lg-logo" />
               </div>
             </div>
 
@@ -165,7 +165,7 @@
             <!-- Left Column: Game Info -->
             <div class="lightgiver-info-col">
               <div class="lightgiver-logo-wrap">
-                <img src="assets/logos/LightGiver_Logo_Transparent.png" alt="LIGHTGIVER" class="lightgiver-main-logo" />
+                <img src="assets/logos/LightGiver_Logo_Transparent.webp" alt="LIGHTGIVER" class="lightgiver-main-logo" />
               </div>
 
               <div class="game-meta-badges">
@@ -201,6 +201,19 @@
                 <div class="media-stage-frame" id="media-stage-frame">
                   <button type="button" class="stage-nav-btn prev" id="stage-prev-btn" aria-label="Previous">‹</button>
                   <img src="" alt="" class="stage-main-img" id="stage-main-img" />
+                  <video
+                    id="stage-main-video"
+                    class="stage-main-img"
+                    autoplay
+                    loop
+                    muted
+                    playsinline
+                    preload="auto"
+                    hidden
+                  ></video>
+                  <div class="stage-loader" id="stage-loader" hidden aria-hidden="true">
+                    <span class="stage-spinner"></span>
+                  </div>
                   <button type="button" class="stage-nav-btn next" id="stage-next-btn" aria-label="Next">›</button>
                   <span class="stage-zoom-hint" data-i18n="game.openFullscreenHint">Нажмите на кадр для просмотра во весь экран</span>
                 </div>
@@ -285,7 +298,7 @@
           <aside class="direct-contacts-card">
             <div class="direct-fox-header">
               <div class="direct-logo-badge">
-                <img src="assets/logos/SpitefulCreation_Logo.png" alt="Spiteful Creation" class="direct-studio-logo" />
+                <img src="assets/logos/SpitefulCreation_Logo.webp" alt="Spiteful Creation" class="direct-studio-logo" />
               </div>
             </div>
 
@@ -314,11 +327,11 @@
 
             <div class="direct-devs-mini">
               <div class="mini-dev-row">
-                <img src="assets/avatars/Mitrey.png" alt="Mitrey" class="mini-dev-avatar" />
+                <img src="assets/avatars/Mitrey.webp" alt="Mitrey" class="mini-dev-avatar" />
                 <span data-i18n="order.directRoleMitrey">Дмитрий Шуваев (Mitrey) — Код, Геймдизайн, Сценарий</span>
               </div>
               <div class="mini-dev-row">
-                <img src="assets/avatars/Rozzar.png" alt="Rozzar" class="mini-dev-avatar" />
+                <img src="assets/avatars/Rozzar.webp" alt="Rozzar" class="mini-dev-avatar" />
                 <span data-i18n="order.directRoleRozzar">Виктор Белоцкий (Rozzar) — 3D-графика, Левел-дизайн</span>
               </div>
             </div>
@@ -334,7 +347,7 @@
       <div class="footer-left">
         <div class="footer-brand-row">
           <span class="footer-fox-badge">
-            <img src="assets/logos/SpitefulCreation_Fox_Icon.png" alt="Spiteful Creation" class="footer-fox" />
+            <img src="assets/logos/SpitefulCreation_Fox_Icon.webp" alt="Spiteful Creation" class="footer-fox" />
           </span>
           <span class="footer-brand-name">SPITEFUL CREATION</span>
         </div>
@@ -364,6 +377,20 @@
       <div class="lightbox-stage">
         <button type="button" class="lightbox-nav-btn prev" id="lightbox-prev-btn" aria-label="Previous">‹</button>
         <img src="" alt="" class="lightbox-img" id="lightbox-img" />
+        <video
+          id="lightbox-video"
+          class="lightbox-img"
+          autoplay
+          loop
+          muted
+          playsinline
+          controls
+          preload="auto"
+          hidden
+        ></video>
+        <div class="stage-loader" id="lightbox-loader" hidden aria-hidden="true">
+          <span class="stage-spinner"></span>
+        </div>
         <button type="button" class="lightbox-nav-btn next" id="lightbox-next-btn" aria-label="Next">›</button>
       </div>
     </div>

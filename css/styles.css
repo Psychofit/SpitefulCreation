@@ -1014,11 +1014,45 @@ button {
   height: 100%;
   object-fit: cover;
   cursor: zoom-in;
+  display: block;
   transition: transform 0.28s ease;
+}
+
+.stage-main-img[hidden],
+.lightbox-img[hidden] {
+  display: none;
 }
 
 .media-stage-frame:hover .stage-main-img {
   transform: scale(1.015);
+}
+
+.stage-loader {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(6, 10, 12, 0.55);
+  pointer-events: none;
+}
+
+.stage-loader[hidden] {
+  display: none;
+}
+
+.stage-spinner {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 3px solid rgba(84, 184, 112, 0.22);
+  border-top-color: var(--sonar-green);
+  animation: stage-spin 0.75s linear infinite;
+}
+
+@keyframes stage-spin {
+  to { transform: rotate(360deg); }
 }
 
 .stage-nav-btn {
@@ -1139,6 +1173,19 @@ button {
   border-radius: 3px;
   background: rgba(11, 16, 18, 0.84);
   color: var(--text-main);
+}
+
+.thumb-play-badge {
+  position: absolute;
+  bottom: 3px;
+  right: 4px;
+  font-size: 0.6rem;
+  line-height: 1;
+  padding: 2px 5px;
+  border-radius: 3px;
+  background: rgba(84, 184, 112, 0.9);
+  color: #091012;
+  font-weight: 700;
 }
 
 /* ================= DIALOGUE-STYLE ORDER SECTION ================= */

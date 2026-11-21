@@ -63,7 +63,7 @@ window.I18N = {
           name: "Дмитрий Шуваев",
           nick: "Mitrey",
           role: "Геймдизайн · Программирование · Сценарий и Диалоги",
-          avatar: "assets/avatars/Mitrey.png",
+          avatar: "assets/avatars/Mitrey.webp",
           accent: "amber",
           quote:
             "«Отвечаю за то, чтобы мир работал по понятным (или намеренно странным) правилам, тумблеры на приборах приятно щёлкали в коде, а персонажи разговаривали как живые личности, а не как википедия».",
@@ -81,7 +81,7 @@ window.I18N = {
           name: "Виктор Белоцкий",
           nick: "Rozzar",
           role: "3D-графика · Окружение · Левел-дизайн и Свет",
-          avatar: "assets/avatars/Rozzar.png",
+          avatar: "assets/avatars/Rozzar.webp",
           accent: "cyan",
           quote:
             "«Моделирую всё, что можно потрогать в кадре — от шестерёнок маяка и медных баков до архитектуры, — и собираю из этого обжитые локации с правильным светом и атмосферой».",
@@ -257,7 +257,7 @@ window.I18N = {
           name: "Dmitry Shuvaev",
           nick: "Mitrey",
           role: "Game Design · Programming · Script & Dialogues",
-          avatar: "assets/avatars/Mitrey.png",
+          avatar: "assets/avatars/Mitrey.webp",
           accent: "amber",
           quote:
             "\"I make sure the game world runs on clear (or deliberately strange) rules, switches on instruments feel satisfying to flip in code, and characters talk like actual personalities instead of walking encyclopedias.\"",
@@ -275,7 +275,7 @@ window.I18N = {
           name: "Viktor Belotsky",
           nick: "Rozzar",
           role: "3D Art · Environments · Level Design & Lighting",
-          avatar: "assets/avatars/Rozzar.png",
+          avatar: "assets/avatars/Rozzar.webp",
           accent: "cyan",
           quote:
             "\"I model everything you can touch on screen — from lighthouse gears and copper brewery tanks to architecture — and assemble lived-in scenes with atmospheric lighting.\"",
@@ -411,72 +411,86 @@ window.I18N = {
 window.LIGHTGIVER_SCREENSHOTS = [
   {
     id: "sonar",
-    src: "assets/screenshots/LightGiver_01_sonar_station.png",
+    src: "assets/screenshots/LightGiver_01_sonar_station.webp",
+    thumb: "assets/screenshots/thumbs/LightGiver_01_sonar_station.webp",
     title: { ru: "Консоль сонара SONAR MK II", en: "SONAR MK II Console" }
   },
   {
     id: "console",
-    src: "assets/screenshots/LightGiver_02_amaterasu_at_the_console.png",
+    src: "assets/screenshots/LightGiver_02_amaterasu_at_the_console.webp",
+    thumb: "assets/screenshots/thumbs/LightGiver_02_amaterasu_at_the_console.webp",
     title: { ru: "Аматэрасу у пульта управления", en: "Amaterasu at the Control Console" }
   },
   {
     id: "shrine",
-    src: "assets/screenshots/LightGiver_03_Shrine.png",
+    src: "assets/screenshots/LightGiver_03_Shrine.webp",
+    thumb: "assets/screenshots/thumbs/LightGiver_03_Shrine.webp",
     title: { ru: "Ночное святилище у моря", en: "Coastal Shrine at Night" }
   },
   {
     id: "domovoi",
-    src: "assets/screenshots/Domovoi_Bath.png",
+    src: "assets/screenshots/Domovoi_Bath.webp",
+    thumb: "assets/screenshots/thumbs/Domovoi_Bath.webp",
     title: { ru: "Домовой в бане (диалоги)", en: "Domovoi in the Bathhouse (Dialogues)" }
   },
   {
     id: "dialogue",
-    src: "assets/screenshots/Amaterasu_Dialogue.png",
+    src: "assets/screenshots/Amaterasu_Dialogue.webp",
+    thumb: "assets/screenshots/thumbs/Amaterasu_Dialogue.webp",
     title: { ru: "Диалоги с Аматэрасу", en: "Dialogues with Amaterasu" }
   },
   {
     id: "lantern",
-    src: "assets/screenshots/LightGiver_04_lantern_lit.png",
+    src: "assets/screenshots/LightGiver_04_lantern_lit.webp",
+    thumb: "assets/screenshots/thumbs/LightGiver_04_lantern_lit.webp",
     title: { ru: "Башня маяка и линза Френеля", en: "Lighthouse Lantern & Fresnel Lens" }
   },
   {
     id: "fishing",
-    src: "assets/screenshots/LightGiver_06_fishing.png",
+    src: "assets/screenshots/LightGiver_06_fishing.webp",
+    thumb: "assets/screenshots/thumbs/LightGiver_06_fishing.webp",
     title: { ru: "Рыбалка с датчиком улова", en: "Fishing with Catch Telemetry" }
   },
   {
     id: "cooking",
-    src: "assets/screenshots/LightGiver_07_cooking.png",
+    src: "assets/screenshots/LightGiver_07_cooking.webp",
+    thumb: "assets/screenshots/thumbs/LightGiver_07_cooking.webp",
     title: { ru: "Готовка на маячной кухне", en: "Cooking in the Lighthouse Kitchen" }
   },
   {
     id: "heart",
-    src: "assets/screenshots/LightGiver_09_lighthouse_heart.png",
+    src: "assets/screenshots/LightGiver_09_lighthouse_heart.webp",
+    thumb: "assets/screenshots/thumbs/LightGiver_09_lighthouse_heart.webp",
     title: { ru: "Механическое «Сердце маяка»", en: "Mechanical Heart of the Lighthouse" }
   },
   {
     id: "pistol",
-    src: "assets/screenshots/LightGiver_10_light_pistol_at_night.png",
+    src: "assets/screenshots/LightGiver_10_light_pistol_at_night.webp",
+    thumb: "assets/screenshots/thumbs/LightGiver_10_light_pistol_at_night.webp",
     title: { ru: "Световой пистолет в ночной дождь", en: "Light Pistol in the Night Rain" }
   },
   {
     id: "washer",
-    src: "assets/screenshots/LightGiver_11_pressure_washer.png",
+    src: "assets/screenshots/LightGiver_11_pressure_washer.webp",
+    thumb: "assets/screenshots/thumbs/LightGiver_11_pressure_washer.webp",
     title: { ru: "Мойка стен под давлением", en: "High-Pressure Wall Washing" }
   },
   {
     id: "brewery",
-    src: "assets/screenshots/LightGiver_12_Brewery.png",
+    src: "assets/screenshots/LightGiver_12_Brewery.webp",
+    thumb: "assets/screenshots/thumbs/LightGiver_12_Brewery.webp",
     title: { ru: "Островная пивоварня", en: "Island Brewery" }
   },
   {
     id: "upgrade",
-    src: "assets/screenshots/LightGiver_13_Upgrade.png",
+    src: "assets/screenshots/LightGiver_13_Upgrade.webp",
+    thumb: "assets/screenshots/thumbs/LightGiver_13_Upgrade.webp",
     title: { ru: "Верстак модификации снастей", en: "Equipment Upgrade Workbench" }
   },
   {
     id: "fireplace",
-    src: "assets/screenshots/LightGiver_15_evening_by_the_fire.png",
+    src: "assets/screenshots/LightGiver_15_evening_by_the_fire.webp",
+    thumb: "assets/screenshots/thumbs/LightGiver_15_evening_by_the_fire.webp",
     title: { ru: "Вечер у камина", en: "Evening by the Fire" }
   }
 ];
@@ -484,32 +498,44 @@ window.LIGHTGIVER_SCREENSHOTS = [
 window.LIGHTGIVER_GIFS = [
   {
     id: "gif_sonar",
-    src: "assets/gifs/LightGiver_sonar_watch.gif",
+    src: "assets/clips/LightGiver_sonar_watch.mp4",
+    thumb: "assets/clips/thumbs/LightGiver_sonar_watch.webp",
+    isVideo: true,
     title: { ru: "Ночная смена за сонаром", en: "Night Watch at the Sonar Console" }
   },
   {
     id: "gif_fire",
-    src: "assets/gifs/LightGiver_amaterasu_by_the_fire.gif",
+    src: "assets/clips/LightGiver_amaterasu_by_the_fire.mp4",
+    thumb: "assets/clips/thumbs/LightGiver_amaterasu_by_the_fire.webp",
+    isVideo: true,
     title: { ru: "Аматэрасу у камина", en: "Amaterasu by the Fireplace" }
   },
   {
     id: "gif_lantern",
-    src: "assets/gifs/LightGiver_lighting_the_lantern.gif",
+    src: "assets/clips/LightGiver_lighting_the_lantern.mp4",
+    thumb: "assets/clips/thumbs/LightGiver_lighting_the_lantern.webp",
+    isVideo: true,
     title: { ru: "Запуск фонаря маяка", en: "Lighting the Lighthouse Lantern" }
   },
   {
     id: "gif_fishing",
-    src: "assets/gifs/LightGiver_fishing.gif",
+    src: "assets/clips/LightGiver_fishing.mp4",
+    thumb: "assets/clips/thumbs/LightGiver_fishing.webp",
+    isVideo: true,
     title: { ru: "Рыбалка у пристани", en: "Fishing by the Pier" }
   },
   {
     id: "gif_cooking",
-    src: "assets/gifs/LightGiver_cooking.gif",
+    src: "assets/clips/LightGiver_cooking.mp4",
+    thumb: "assets/clips/thumbs/LightGiver_cooking.webp",
+    isVideo: true,
     title: { ru: "Приготовление еды на плите", en: "Cooking on the Stove" }
   },
   {
     id: "gif_washer",
-    src: "assets/gifs/LightGiver_pressure_washer.gif",
+    src: "assets/clips/LightGiver_pressure_washer.mp4",
+    thumb: "assets/clips/thumbs/LightGiver_pressure_washer.webp",
+    isVideo: true,
     title: { ru: "Очистка фасада мойкой", en: "Cleaning Walls with the Pressure Washer" }
   }
 ];
